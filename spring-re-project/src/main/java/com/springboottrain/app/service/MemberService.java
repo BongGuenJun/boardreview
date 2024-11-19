@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.springboottrain.app.domain.Member;
 import com.springboottrain.app.mapper.MemberMapper;
 
-import groovy.util.logging.Slf4j;
+import lombok.extern.slf4j.Slf4j;
+
+
 
 @Service
 @Slf4j
@@ -46,4 +48,16 @@ public class MemberService {
 		}
 		return true;
 	}
+	
+	
+	public void addMember(Member member) {
+	member.setPass(passwordEncoder.encode(member.getPass()));
+	log.info(member.getPass());
+	memberMapper.addMember(member);
+	}
+	
+	
+	
+	
+	
 }

@@ -17,6 +17,13 @@
 SELECT * FROM member WHERE id = #{id}
 </select>
 
+<insert id="addMember" parameterType="Member">
+	INSERT INTO member
+	VALUES(#{id}, #{name}, #{pass}, #{email},
+		#{mobile}, #{zipcode}, #{address1}, #{address2},
+		#{phone}, #{emailGet}, SYSDATE())
+</insert>
+
 </mapper>	
 
 
